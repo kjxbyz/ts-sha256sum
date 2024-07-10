@@ -1,3 +1,4 @@
+import { sep } from "path";
 import { test, assert } from "vitest";
 import {
   shasum,
@@ -11,17 +12,17 @@ import {
 const sha256sumContent: HashFileTuple[] = [
   [
     "31de1b83be7cad0d6a5222ce771f6bbf5b4139b98358449bca9c93b7fd220adf",
-    "test/data/b.txt",
+    `test${sep}data${sep}b.txt`,
   ],
   [
     "f7679f192cb75a5be4cfc1f24a3dd9840078df1b27c82d2d6757a273c610d455",
-    "test/data/a.txt",
+    `test${sep}data${sep}a.txt`,
   ],
 ];
 
 const sha256sumVerifiedContent: HashFileVerifiedTuple[] = [
-  ["test/data/b.txt", true],
-  ["test/data/a.txt", true],
+  [`test${sep}data${sep}b.txt`, true],
+  [`test${sep}data${sep}a.txt`, true],
 ];
 
 test("shasum", async () => {
