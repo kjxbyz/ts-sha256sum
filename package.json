@@ -34,10 +34,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm run build-fast -- --dts-resolve",
-    "build-fast": "tsup",
+    "build": "tsup",
     "prepare": "husky",
-    "prepublishOnly": "pnpm run build",
+    "prepublishOnly": "pnpm build",
     "test": "vitest run"
   },
   "dependencies": {
@@ -58,6 +57,9 @@
     "tsup": "^8.1.0",
     "typescript": "^4.9.5",
     "vitest": "^2.0.1"
+  },
+  "peerDependencies": {
+    "glob": "^11.0.0"
   },
   "packageManager": "pnpm@9.4.0",
   "publishConfig": {

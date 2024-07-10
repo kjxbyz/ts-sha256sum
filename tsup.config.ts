@@ -9,4 +9,7 @@ export default defineConfig({
   format: ["cjs", "esm"],
   dts: true,
   tsconfig: "./tsconfig.json",
+  banner: {
+    js: "/** Copyright (c) 2024 kjxbyz. All rights reserved. */",
+  },
 });
