@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-// import { shasum } from "../dist/index"
+import("../dist/cli.js");

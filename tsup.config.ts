@@ -1,15 +1,36 @@
-import { defineConfig } from "tsup";
+import { defineConfig, type Options } from "tsup";
+import * as pkgInfo from "./package.json";
 
-export default defineConfig({
-  entry: ["src/index.ts"],
+const banner = `
+/** 
+ * Version: ${pkgInfo.version}
+ *  
+ * Copyright (c) 2024 kjxbyz. All rights reserved.
+ */
+`;
+
+const options: Options = {
   splitting: false,
-  sourcemap: true,
+  sourcemap: false,
   clean: true,
   minify: true,
-  format: ["cjs", "esm"],
   dts: true,
-  tsconfig: "./tsconfig.json",
+  format: ["cjs", "esm"],
   banner: {
-    js: "/** Copyright (c) 2024 kjxbyz. All rights reserved. */",
+    js: banner,
   },
-});
+};
+
+export default defineConfig([
+  {
+    ...options,
+    entry: ["src/cli.ts"],
+    dts: false,
+    noExternal: ["cac"],
+  },
+  {
+    ...options,
+    entry: ["src/main.ts"],
+    tsconfig: "./tsconfig.json",
+  },
+]);
