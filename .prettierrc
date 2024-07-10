@@ -1,1 +1,4 @@
-"@egoist/prettier-config"
+{
+  "bracketSpacing": true,
+  "semi": true
+}

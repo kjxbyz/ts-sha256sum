@@ -1,32 +1,66 @@
 {
-  "name": "my-ts-lib",
-  "version": "0.0.0",
-  "description": "My awesome typescript library",
-  "publishConfig": {
-    "access": "public"
+  "name": "ts-shasum",
+  "version": "1.0.0-pre.0",
+  "description": "Compute and check SHA256 message digest.",
+  "keywords": [
+    "sha256sum",
+    "shasum"
+  ],
+  "homepage": "https://github.com/kjxbyz/shasum",
+  "bugs": "https://github.com/kjxbyz/shasum/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjxbyz/shasum.git"
+  },
+  "license": "MIT",
+  "author": "kjxbyz <kjxbyz888@outlook.com> (https://github.com/kjxbyz)",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "shasum": "bin/shasum.js"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
-  },
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
     "build": "pnpm run build-fast -- --dts-resolve",
-    "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "build-fast": "tsup",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build",
+    "test": "vitest run"
   },
-  "license": "MIT",
+  "dependencies": {
+    "glob": "^11.0.0"
+  },
   "devDependencies": {
-    "@egoist/prettier-config": "1.0.0",
-    "prettier": "2.8.4",
-    "tsup": "6.6.3",
-    "typescript": "4.9.5",
-    "vitest": "0.28.5"
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@types/node": "18.19.39",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "sort-package-json": "^2.10.0",
+    "tsup": "^8.1.0",
+    "typescript": "^4.9.5",
+    "vitest": "^2.0.1"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "publishConfig": {
+    "access": "public"
   }
 }

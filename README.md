@@ -1,35 +1,22 @@
-**💛 You can help the author become a full-time open-source maintainer by [sponsoring him on GitHub](https://github.com/sponsors/egoist).**
+# shasum
 
----
-
-# my-ts-lib
-
-[![npm version](https://badgen.net/npm/v/my-ts-lib)](https://npm.im/my-ts-lib) [![npm downloads](https://badgen.net/npm/dm/my-ts-lib)](https://npm.im/my-ts-lib)
-
-## Using this template
-
-- Search `my-ts-lib` and replace it with your custom package name.
-- Search `egoist` and replace it with your name.
-
-Features:
-
-- Package manager [pnpm](https://pnpm.js.org/), safe and fast
-- Release with [semantic-release](https://npm.im/semantic-release)
-- Bundle with [tsup](https://github.com/egoist/tsup)
-- Test with [vitest](https://vitest.dev)
-
-To skip CI (GitHub action), add `skip-ci` to commit message. To skip release, add `skip-release` to commit message.
+[![CI](https://github.com/kjxbyz/shasum/actions/workflows/ci.yml/badge.svg)](https://github.com/kjxbyz/shasum/actions/workflows/ci.yml)
+[![NPM Version](https://img.shields.io/npm/v/ts-shasum)](https://www.npmjs.com/package/ts-shasum)
+[![NPM Downloads](https://img.shields.io/npm/dy/ts-shasum)](https://www.npmjs.com/package/ts-shasum)
+[![NPM License](https://img.shields.io/npm/l/ts-shasum)](https://github.com/kjxbyz/shasum/blob/main/LICENSE)
 
 ## Install
 
 ```bash
-npm i my-ts-lib
+npm i ts-shasum
 ```
 
-## Sponsors
+## Tests
 
-[![sponsors](https://sponsors-images.egoist.dev/sponsors.svg)](https://github.com/sponsors/egoist)
+```bash
+shasum --algorithm 256 -c SHASUMS256.txt
+```
 
 ## License
 
-MIT &copy; [EGOIST](https://github.com/sponsors/egoist)
+MIT
