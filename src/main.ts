@@ -1,5 +1,5 @@
 import { globSync } from "glob";
-import { createHash, type HashOptions } from "crypto";
+import { createHash, type HashOptions } from "node:crypto";
 import {
   createReadStream,
   writeFileSync,
@@ -7,7 +7,7 @@ import {
   type PathOrFileDescriptor,
   type WriteFileOptions,
   type ObjectEncodingOptions,
-} from "fs";
+} from "node:fs";
 
 export type HashFileTuple = [string, string];
 export type HashFileVerifiedTuple = [string, boolean];

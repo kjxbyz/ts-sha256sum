@@ -24,7 +24,7 @@ const options: Options = {
 export default defineConfig([
   {
     ...options,
-    entry: ["src/cli.ts"],
+    entry: ["src/cli.ts", "src/version.ts"],
     dts: false,
     noExternal: ["cac"],
   },
