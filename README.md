@@ -11,6 +11,12 @@
 npm i ts-shasum
 ```
 
+## Debug
+
+```bash
+npx shasum -h
+```
+
 ## Tests
 
 ```bash
