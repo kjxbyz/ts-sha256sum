@@ -1,6 +1,7 @@
 # shasum
 
-[![CI](https://github.com/kjxbyz/shasum/actions/workflows/ci.yml/badge.svg)](https://github.com/kjxbyz/shasum/actions/workflows/ci.yml)
+[![Test](https://github.com/kjxbyz/shasum/actions/workflows/test.yml/badge.svg)](https://github.com/kjxbyz/shasum/actions/workflows/test.yml)
+[![Publish](https://github.com/kjxbyz/shasum/actions/workflows/publish.yml/badge.svg)](https://github.com/kjxbyz/shasum/actions/workflows/publish.yml)
 [![NPM Version](https://img.shields.io/npm/v/ts-shasum)](https://www.npmjs.com/package/ts-shasum)
 [![NPM Downloads](https://img.shields.io/npm/dy/ts-shasum)](https://www.npmjs.com/package/ts-shasum)
 [![NPM License](https://img.shields.io/npm/l/ts-shasum)](https://github.com/kjxbyz/shasum/blob/main/LICENSE)
