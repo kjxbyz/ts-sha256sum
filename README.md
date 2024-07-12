@@ -14,7 +14,7 @@ npm i ts-shasum
 ## Debug
 
 ```bash
-npx shasum -h
+npx ts-shasum -h
 ```
 
 ## Tests
