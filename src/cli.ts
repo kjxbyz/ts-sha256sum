@@ -2,7 +2,6 @@ import { cac } from "cac";
 import { shasum, verify, writeToFile, readFromFile } from "./main";
 import * as pkgInfo from "../package.json";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const cli = cac("shasum");
 
 // global options
