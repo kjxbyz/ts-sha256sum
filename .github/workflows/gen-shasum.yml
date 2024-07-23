@@ -1,0 +1,77 @@
+name: Gen Shasum
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gen-shasum:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [18.x]
+
+    runs-on: ${{ matrix.os }}
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install ts-shasum
+        run: pnpm add --global ts-shasum
+
+      - name: Download assets
+        uses: robinraju/release-downloader@v1
+        with:
+          # The source repository path.
+          # Expected format {owner}/{repo}
+          repository: 'cyf/faforever'
+      
+          # The github tag. e.g: v1.0.1
+          # Download assets from a specific tag/version
+          tag: 'v1.0.0+16'
+      
+          # The name of the file to download.
+          # Use this field only to specify filenames other than tarball or zipball, if any.
+          # Supports wildcard pattern (eg: '*', '*.deb', '*.zip' etc..)
+          fileName: '*'
+      
+          # Download the attached tarball (*.tar.gz)
+          tarBall: true
+      
+          # Download the attached zipball (*.zip)
+          zipBall: true
+      
+          # Relative path under $GITHUB_WORKSPACE to place the downloaded file(s)
+          # It will create the target directory automatically if not present
+          # eg: out-file-path: "my-downloads" => It will create directory $GITHUB_WORKSPACE/my-downloads
+          out-file-path: 'ff-downloads'
+      
+      # Runs a set of commands using the runners shell
+      - name: Build on Windows
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: shasum create "$env:GITHUB_WORKSPACE\SHASUMS256.txt" *
+        working-directory: ${{ github.workspace }}\ff-downloads
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ matrix.os == 'windows-latest' }}
+        with:
+          name: SHASUMS256-${{ matrix.os }}.txt
+          path: ${{ github.workspace }}\SHASUMS256.txt
+
+      - name: Build on Linux
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: shasum create "$GITHUB_WORKSPACE/SHASUMS256.txt" *
+        working-directory: ${{ github.workspace }}/ff-downloads
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        with:
+          name: SHASUMS256-${{ matrix.os }}.txt
+          path: ${{ github.workspace }}/SHASUMS256.txt
+      
