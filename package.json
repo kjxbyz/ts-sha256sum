@@ -1,6 +1,6 @@
 {
   "name": "ts-shasum",
-  "version": "1.0.0-pre.5",
+  "version": "1.0.0",
   "description": "Compute and check SHA256 message digest.",
   "keywords": [
     "sha256sum",
