@@ -24,13 +24,13 @@ const options: Options = {
 export default defineConfig([
   {
     ...options,
-    entry: ["src/cli.ts", "src/version.ts"],
+    entry: ["src/cli.ts"],
     dts: false,
     noExternal: ["cac"],
   },
   {
     ...options,
-    entry: ["src/main.ts"],
+    entry: ["src/main.ts", "src/version.ts"],
     tsconfig: "./tsconfig.json",
   },
 ]);
